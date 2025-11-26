@@ -2,10 +2,889 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
-  <title>Simracing komunita</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3Star Racing – Simracing komunita SK/CZ</title>
+  <style>
+    :root {
+      --bg-dark: #0b1220;
+      --bg-card: rgba(15, 23, 42, 0.9);
+      --bg-card-soft: rgba(15, 23, 42, 0.7);
+      --accent: #26b4ff;
+      --accent-soft: rgba(38, 180, 255, 0.18);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --radius-xl: 1.25rem;
+      --radius-full: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+      --navy: #1b2d43; /* podľa loga */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at top, rgba(38, 180, 255, 0.18), transparent 55%),
+        radial-gradient(circle at bottom, rgba(37, 99, 235, 0.25), transparent 55%),
+        linear-gradient(135deg, #020617, var(--bg-dark), var(--navy));
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    /* Top nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.94),
+          rgba(15, 23, 42, 0.8),
+          transparent
+        );
+      border-bottom: 1px solid rgba(15, 23, 42, 0.6);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 80px;
+      height: auto;
+      filter: drop-shadow(0 0 18px rgba(38, 180, 255, 0.55));
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      padding: 0.2rem 0;
+      position: relative;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, var(--accent), #a5b4fc);
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      background: rgba(15, 23, 42, 0.75);
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .lang-btn + .lang-btn {
+      border-left: 1px solid rgba(30, 64, 175, 0.5);
+    }
+
+    .lang-btn.active {
+      background: radial-gradient(circle at top, var(--accent-soft), transparent);
+      color: var(--text-main);
+    }
+
+    /* Layout sections */
+    main {
+      margin-top: 1.75rem;
+    }
+
+    section {
+      margin-bottom: 2.75rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.25rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.6rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent), transparent);
+      box-shadow: 0 0 9px var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3.2vw + 1rem, 3rem);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .hero-tagline {
+      margin-top: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 30rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition:
+        transform 0.14s ease-out,
+        box-shadow 0.14s ease-out,
+        background 0.14s ease-out,
+        border-color 0.14s ease-out,
+        color 0.14s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #a5b4fc);
+      color: #0f172a;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 26px 55px rgba(15, 23, 42, 1);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.8);
+      border-color: var(--border-subtle);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-logo-card {
+      background: radial-gradient(circle at top, var(--accent-soft), transparent),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.92));
+      border-radius: 2rem;
+      padding: 1.75rem 1.75rem 1.3rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .hero-logo-card img {
+      margin: 0 auto 1.25rem;
+    }
+
+    .hero-logo-meta {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .chip {
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Generic section styles */
+    .section-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      padding: 1.6rem 1.6rem 1.5rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .section-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+      gap: 1.5rem;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .muted strong {
+      color: var(--text-main);
+    }
+
+    /* Community section */
+    .sim-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .sim-card {
+      background: var(--bg-card-soft);
+      border-radius: 1rem;
+      padding: 0.9rem 0.9rem 0.85rem;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      font-size: 0.85rem;
+    }
+
+    .sim-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      color: var(--accent);
+    }
+
+    .sim-body {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Join section */
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0;
+      display: grid;
+      gap: 0.45rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .contact-value a {
+      color: var(--accent);
+    }
+
+    .contact-note {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(30, 64, 175, 0.6);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer span:last-child {
+      opacity: 0.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-logo-card {
+        order: -1;
+      }
+
+      .nav-inner {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 0.5rem;
+        font-size: 0.85rem;
+      }
+
+      .contact-grid,
+      .two-col,
+      .sim-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding-inline: 1rem;
+      }
+
+      .nav-inner {
+        padding-inline: 1rem;
+      }
+
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      .hero-logo-card {
+        padding-inline: 1.25rem;
+      }
+
+      .nav-links {
+        justify-content: center;
+        margin-top: 0.8rem;
+      }
+
+      .brand-logo {
+        width: 68px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Vitaj v našej simracing komunite</h1>
-  <p>Toto je prvá verzia našej stránky na GitHub Pages.</p>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <!-- Logo súbor premenuj na 3star_logo.png alebo uprav path -->
+        <img src="3star_logo.png" alt="3Star Racing logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">3Star Racing</span>
+          <span class="brand-subtitle" data-i18n="hero_tagline">
+            Slovensko-česká simracing komunita
+          </span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#home" class="nav-link" data-i18n="nav_home">Domov</a>
+        <a href="#about" class="nav-link" data-i18n="nav_about">O nás</a>
+        <a href="#community" class="nav-link" data-i18n="nav_community">Komunita</a>
+        <a href="#join" class="nav-link" data-i18n="nav_join">Ako sa pridať</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Kontakt</a>
+
+        <div class="lang-switcher" aria-label="Language switcher">
+          <button class="lang-btn active" data-lang="sk">SK</button>
+          <button class="lang-btn" data-lang="cz">CZ</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page" id="top">
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="hero_tagline">Slovensko-česká simracing komunita</span>
+          </div>
+          <h1 class="hero-title" data-i18n="hero_title">3Star Racing</h1>
+          <p class="hero-tagline" data-i18n="hero_intro">
+            </p>
+          <div class="hero-meta">
+            <span>ACC</span>
+            <span>Le Mans Ultimate</span>
+            <span>iRacing</span>
+            <span>Clean racing &amp; fair-play</span>
+          </div>
+          <div class="hero-actions">
+            <!-- TODO: doplň reálny Discord invite -->
+            <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer"
+               data-i18n="hero_cta_primary">
+              Pridaj sa na Discord
+            </a>
+            <a href="#community" class="btn btn-ghost" data-i18n="hero_cta_secondary">
+              Pozri si naše série
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-logo-card" aria-label="3Star Racing logo & series">
+          <img src="3star_logo.png" alt="3Star Racing logo" />
+          <div class="hero-logo-meta">
+            <span class="chip">ACC</span>
+            <span class="chip">LMU</span>
+            <span class="chip">iRacing</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="about_title">Kto sme</h2>
+            <span class="section-kicker">About</span>
+          </div>
+          <div class="two-col">
+            <p class="muted" data-i18n="about_body">
+              3Star Racing je komunita simracerov z SK a CZ, ktorí milujú čisté
+              preteky, fair-play a dobrú atmosféru. Organizujeme ligy, fun race
+              a endurance preteky v obľúbených simulátoroch a radi pomôžeme
+              nováčikom s prvými kolami.
+            </p>
+            <div class="muted">
+              <p data-i18n="about_body_extra">
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMUNITY -->
+      <section id="community">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="community_title">
+              V akých tituloch jazdíme
+            </h2>
+            <span class="section-kicker">Sim titles</span>
+          </div>
+          <p class="muted" data-i18n="community_intro">
+            Jazdíme hlavne tieto simulátory:
+          </p>
+
+          <div class="sim-grid">
+            <div class="sim-card">
+              <div class="sim-title">Assetto Corsa Competizione</div>
+              <p class="sim-body" data-i18n="community_item_acc">
+                Assetto Corsa Competizione – GT3/GT4 šampionáty, vytrvalostné
+                eventy a tréninky.
+              </p>
+            </div>
+            <div class="sim-card">
+              <div class="sim-title">Le Mans Ultimate</div>
+              <p class="sim-body" data-i18n="community_item_lmu">
+                Le Mans Ultimate – prototypy, hypercary a legendárne okruhy WEC.
+              </p>
+            </div>
+            <div class="sim-card">
+              <div class="sim-title">iRacing</div>
+              <p class="sim-body" data-i18n="community_item_ir">
+                iRacing – oficiálne série, ligové preteky a príprava na
+                licenčné postupy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOIN -->
+      <section id="join">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="join_title">Ako sa pridať</h2>
+            <span class="section-kicker">Start racing</span>
+          </div>
+          <div class="two-col">
+            <div class="muted">
+              <ul class="steps">
+                <li data-i18n="join_step1">
+                  1. Vstúp na náš Discord server (link nižšie).
+                </li>
+                <li data-i18n="join_step2">
+                  2. Pozri si sekciu „pravidlá“ a krátky onboarding.
+                </li>
+                <li data-i18n="join_step3">
+                  3. Vyber si sériu, nahlás sa do pretekov a vidíme sa na trati!
+                </li>
+              </ul>
+            </div>
+            <p class="muted" data-i18n="join_note">
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="contact_title">Kontakt</h2>
+            <span class="section-kicker">Stay in touch</span>
+          </div>
+          <div class="contact-grid">
+            <div>
+              <ul class="contact-list">
+                <li class="contact-item">
+                  <span class="contact-label" data-i18n="contact_discord_label">
+                    Discord komunita
+                  </span>
+                  <span class="contact-value">
+                    <!-- TODO: doplň reálny invite link -->
+                    <a href="#" target="_blank" rel="noreferrer">
+                      discord.gg/3starracing
+                    </a>
+                  </span>
+                </li>
+                <li class="contact-item">
+                  <span class="contact-label" data-i18n="contact_email_label">
+                    E-mail
+                  </span>
+                  <span class="contact-value">
+                    <!-- TODO: uprav na skutočnú adresu -->
+                    <a href="mailto:info@3star-racing.com">
+                      info@3star-racing.com
+                    </a>
+                  </span>
+                </li>
+              </ul>
+              <p class="contact-note" data-i18n="contact_note">
+                Napíš nám, ak máš otázky ohľadom ligy, partnerstva alebo
+                streamovania pretekov.
+              </p>
+            </div>
+            <div class="muted">
+              <p data-i18n="contact_right">
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span data-i18n="footer_text">
+        3Star Racing – simracing komunita SK &amp; CZ
+      </span>
+      <span>Website template by GitHub Pages · uprav podľa potreby</span>
+    </footer>
+  </div>
+
+  <script>
+    const translations = {
+      sk: {
+        nav_home: "Domov",
+        nav_about: "O nás",
+        nav_community: "Komunita",
+        nav_join: "Ako sa pridať",
+        nav_contact: "Kontakt",
+        hero_tagline: "Slovensko-česká simracing komunita",
+        hero_title: "3Star Racing",
+        hero_intro:
+          "Komunita simracerov zo Slovenska a Česka, ktorí chcú jazdiť čisto, férovo a v dobrej atmosfére. Od prvých kôl až po endurance šampionáty – máme miesto pre každého.",
+        hero_cta_primary: "Pridaj sa na Discord",
+        hero_cta_secondary: "Pozri si naše série",
+        about_title: "Kto sme",
+        about_body:
+          "3Star Racing je komunita simracerov z SK a CZ, ktorí milujú čisté preteky, fair-play a dobrú atmosféru. Organizujeme ligy, fun race a endurance preteky v obľúbených simulátoroch a radi pomôžeme nováčikom s prvými kolami.",
+        about_body_extra:
+          "Nezáleží na tom, či jazdíš s volantom alebo na gamepade – dôležitý je prístup. Venujeme sa nastaveniu simulátorov, zdieľaniu setupov, spoločným tréningom aj analýze replayov, aby si sa mohol krok za krokom zlepšovať.",
+        community_title: "V akých tituloch jazdíme",
+        community_intro: "Jazdíme hlavne tieto simulátory:",
+        community_item_acc:
+          "Assetto Corsa Competizione – GT3/GT4 šampionáty, vytrvalostné eventy a tréninky.",
+        community_item_lmu:
+          "Le Mans Ultimate – prototypy, hypercary a legendárne okruhy WEC.",
+        community_item_ir:
+          "iRacing – oficiálne série, ligové preteky a príprava na licenčné postupy.",
+        join_title: "Ako sa pridať",
+        join_step1: "1. Vstúp na náš Discord server (link nižšie).",
+        join_step2: "2. Pozri si sekciu „pravidlá“ a krátky onboarding.",
+        join_step3:
+          "3. Vyber si sériu, nahlás sa do pretekov a vidíme sa na trati!",
+        join_note:
+          "Väčšina komunikácie prebieha na Discorde – tam nájdeš kalendár pretekov, briefingy, výsledky aj priestor na feedback. Ak si úplný nováčik, ozvi sa adminom a pomôžeme ti s nastavením a prvými jazdami.",
+        contact_title: "Kontakt",
+        contact_discord_label: "Discord komunita",
+        contact_email_label: "E-mail",
+        contact_note:
+          "Napíš nám, ak máš otázky ohľadom ligy, partnerstva alebo streamovania pretekov.",
+        contact_right:
+          "Hľadáme podobne naladených ľudí, komentátorov, timekeeperov aj partnerov, ktorí chcú byť pri budovaní SK/CZ simracing scény. Ak máš nápad na spoločný projekt alebo špeciálny event, ozvi sa nám.",
+        footer_text: "3Star Racing – simracing komunita SK & CZ"
+      },
+      cz: {
+        nav_home: "Domů",
+        nav_about: "O nás",
+        nav_community: "Komunita",
+        nav_join: "Jak se přidat",
+        nav_contact: "Kontakt",
+        hero_tagline: "Slovensko-česká simracing komunita",
+        hero_title: "3Star Racing",
+        hero_intro:
+          "Komunita simracerů z Česka a Slovenska, kteří chtějí jezdit čistě, fér a v pohodové atmosféře. Od prvních kol až po endurance šampionáty – máme místo pro každého.",
+        hero_cta_primary: "Přidej se na Discord",
+        hero_cta_secondary: "Podívej se na naše série",
+        about_title: "Kdo jsme",
+        about_body:
+          "3Star Racing je komunita simracerů z Česka a Slovenska, kteří mají rádi čisté závodění, fair-play a přátelskou atmosféru. Pořádáme ligy, fun racy i endurance závody v oblíbených simulátorech a rádi pomůžeme nováčkům s prvními koly.",
+        about_body_extra:
+          "Neřešíme, jestli jezdíš na volantu nebo gamepadu – důležitý je respekt na trati. Sdílíme setupy, poradíme s nastavením a společně analyzujeme replaye, aby ses mohl postupně zlepšovat.",
+        community_title: "V jakých titulech jezdíme",
+        community_intro: "Jezdíme hlavně tyto simulátory:",
+        community_item_acc:
+          "Assetto Corsa Competizione – GT3/GT4 šampionáty, endurance akce a tréninky.",
+        community_item_lmu:
+          "Le Mans Ultimate – prototypy, hypercary a legendární tratě WEC.",
+        community_item_ir:
+          "iRacing – oficiální série, ligové závody a příprava na postup licencí.",
+        join_title: "Jak se přidat",
+        join_step1: "1. Vstup na náš Discord server (odkaz níže).",
+        join_step2: "2. Projdi si sekci „pravidla“ a krátký onboarding.",
+        join_step3:
+          "3. Vyber si sérii, přihlas se do závodu a uvidíme se na trati!",
+        join_note:
+          "Většina komunikace probíhá na Discordu – najdeš tam kalendář závodů, briefingy, výsledky i prostor na feedback. Pokud jsi úplný nováček, napiš adminům a pomůžeme ti se startem.",
+        contact_title: "Kontakt",
+        contact_discord_label: "Discord komunita",
+        contact_email_label: "E-mail",
+        contact_note:
+          "Napiš nám, pokud máš dotazy k lize, partnerství nebo streamování závodů.",
+        contact_right:
+          "Hledáme podobně naladěné jezdce, komentátory, timekeepery i partnery, kteří chtějí posunout CZ/SK simracing scénu. Máš nápad na speciální event nebo spolupráci? Určitě se ozvi.",
+        footer_text: "3Star Racing – simracing komunita CZ & SK"
+      },
+      en: {
+        nav_home: "Home",
+        nav_about: "About",
+        nav_community: "Community",
+        nav_join: "How to join",
+        nav_contact: "Contact",
+        hero_tagline: "Slovak & Czech simracing community",
+        hero_title: "3Star Racing",
+        hero_intro:
+          "A Slovak–Czech simracing community focused on clean racing, fair-play and a friendly atmosphere. From your very first laps to serious endurance championships – there is a place for everyone.",
+        hero_cta_primary: "Join our Discord",
+        hero_cta_secondary: "See our series",
+        about_title: "Who we are",
+        about_body:
+          "3Star Racing is a Slovak-Czech simracing community focused on clean racing, fair-play and a friendly atmosphere. We run leagues, fun races and endurance events in popular simulators and we are happy to help new drivers with their first laps.",
+        about_body_extra:
+          "It does not matter if you drive with a wheel or a gamepad – attitude and respect on track are what counts. We share setups, help with simulator configuration and review replays together so you can improve step by step.",
+        community_title: "What we race",
+        community_intro: "We mainly race in these simulators:",
+        community_item_acc:
+          "Assetto Corsa Competizione – GT3/GT4 championships, endurance events and practice sessions.",
+        community_item_lmu:
+          "Le Mans Ultimate – prototypes, hypercars and classic WEC tracks.",
+        community_item_ir:
+          "iRacing – official series, league races and coaching for license progression.",
+        join_title: "How to join",
+        join_step1: "1. Join our Discord server (link below).",
+        join_step2: "2. Read the rules and the short onboarding channel.",
+        join_step3:
+          "3. Pick a series, register for a race and see you on track!",
+        join_note:
+          "Most of our coordination happens on Discord – race calendar, briefings, results and feedback channels are all there. If you are completely new to simracing, send a message to the admins and we will help you get started.",
+        contact_title: "Contact",
+        contact_discord_label: "Discord community",
+        contact_email_label: "E-mail",
+        contact_note:
+          "Reach out if you have questions about the league, partnerships or race broadcasting.",
+        contact_right:
+          "We are open to collaboration with drivers, commentators, timekeepers and partners who want to help grow the CZ/SK simracing scene. If you have an idea for a special event or project, let us know.",
+        footer_text: "3Star Racing – simracing community"
+      }
+    };
+
+    const langToHtml = { sk: "sk", cz: "cs", en: "en" };
+
+    function setLanguage(lang) {
+      const dict = translations[lang];
+      if (!dict) return;
+
+      document.documentElement.lang = langToHtml[lang] || lang;
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+
+      document
+        .querySelectorAll(".lang-btn")
+        .forEach((btn) => btn.classList.toggle("active", btn.dataset.lang === lang));
+    }
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+
+    // inicializácia
+    setLanguage("sk");
+  </script>
 </body>
 </html>
