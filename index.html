@@ -494,9 +494,10 @@
         <a href="#contact" class="nav-link" data-i18n="nav_contact">Kontakt</a>
 
         <div class="lang-switcher" aria-label="Language switcher">
-          <button class="lang-btn active" data-lang="sk">SK</button>
-          <button class="lang-btn" data-lang="cz">CZ</button>
-          <button class="lang-btn" data-lang="en">EN</button>
+          <!-- jednoduché onclick volania -->
+          <button class="lang-btn active" data-lang="sk" onclick="setLanguage('sk')">SK</button>
+          <button class="lang-btn" data-lang="cz" onclick="setLanguage('cz')">CZ</button>
+          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
         </div>
       </nav>
     </div>
@@ -515,7 +516,9 @@
             <span data-i18n="hero_title_line2">RACING</span>
           </h1>
           <p class="hero-tagline" data-i18n="hero_intro">
-            Komunita simracerov zo Slovenska a Česka, ktorí chcú jazdiť čisto, férovo a v dobrej atmosfére. Od prvých kôl až po endurance šampionáty – máme miesto pre každého.
+            Komunita simracerov zo Slovenska a Česka, ktorí chcú jazdiť čisto,
+            férovo a v dobrej atmosfére. Od prvých kôl až po endurance
+            šampionáty – máme miesto pre každého.
           </p>
           <div class="hero-meta">
             <span>ACC</span>
@@ -680,28 +683,161 @@
       <span data-i18n="footer_text">
         3Star Racing – simracing komunita SK &amp; CZ
       </span>
-      <span>Website template · uprav podľa potreby</span>
     </footer>
   </div>
 
-  <!-- JAZYKOVÝ PREPÍNAČ -->
+  <!-- JAZYKOVÝ PREPÍNAČ – jednoduchá globálna funkcia -->
   <script>
-    (function () {
-      var translations = {
-        sk: {
-          nav_home: "Domov",
-          nav_about: "O nás",
-          nav_community: "Komunita",
-          nav_join: "Ako sa pridať",
-          nav_contact: "Kontakt",
-          hero_tagline: "Slovensko-česká simracing komunita",
-          hero_title_line1: "3STAR",
-          hero_title_line2: "RACING",
-          hero_intro:
-            "Komunita simracerov zo Slovenska a Česka, ktorí chcú jazdiť čisto, férovo a v dobrej atmosfére. Od prvých kôl až po endurance šampionáty – máme miesto pre každého.",
-          hero_cta_primary: "Pridaj sa na Discord",
-          hero_cta_secondary: "Pozri si naše série",
-          about_title: "Kto sme",
-          about_body:
-            "3Star Racing je komunita simracerov z SK a CZ, ktorí milujú čisté preteky, fair-play a dobrú atmosféru. Organizujeme ligy, fun race a endurance preteky v obľúbených simulátoroch a radi pomôžeme nováčikom s prvými kolami.",
-          about_b_
+    var translations = {
+      sk: {
+        nav_home: "Domov",
+        nav_about: "O nás",
+        nav_community: "Komunita",
+        nav_join: "Ako sa pridať",
+        nav_contact: "Kontakt",
+        hero_tagline: "Slovensko-česká simracing komunita",
+        hero_title_line1: "3STAR",
+        hero_title_line2: "RACING",
+        hero_intro:
+          "Komunita simracerov zo Slovenska a Česka, ktorí chcú jazdiť čisto, férovo a v dobrej atmosfére. Od prvých kôl až po endurance šampionáty – máme miesto pre každého.",
+        hero_cta_primary: "Pridaj sa na Discord",
+        hero_cta_secondary: "Pozri si naše série",
+        about_title: "Kto sme",
+        about_body:
+          "3Star Racing je komunita simracerov z SK a CZ, ktorí milujú čisté preteky, fair-play a dobrú atmosféru. Organizujeme ligy, fun race a endurance preteky v obľúbených simulátoroch a radi pomôžeme nováčikom s prvými kolami.",
+        about_body_extra:
+          "Nezáleží na tom, ako dlho jazdíš – dôležitý je prístup. Venujeme sa nastaveniu simulátorov, zdieľaniu setupov, spoločným tréningom aj analýze replayov, aby si sa mohol krok za krokom zlepšovať.",
+        community_title: "V akých tituloch jazdíme",
+        community_intro: "Jazdíme hlavne tieto simulátory:",
+        community_item_acc:
+          "Assetto Corsa Competizione – GT3/GT4 šampionáty, vytrvalostné eventy a tréninky.",
+        community_item_lmu:
+          "Le Mans Ultimate – prototypy, hypercary a legendárne okruhy WEC.",
+        community_item_ir:
+          "iRacing – oficiálne série, ligové preteky a príprava na licenčné postupy.",
+        join_title: "Ako sa pridať",
+        join_step1: "1. Vstúp na náš Discord server (link nižšie).",
+        join_step2: "2. Pozri si sekciu „pravidlá“ a krátky onboarding.",
+        join_step3: "3. Vyber si sériu, nahlás sa do pretekov a vidíme sa na trati!",
+        join_note:
+          "Väčšina komunikácie prebieha na Discorde – tam nájdeš kalendár pretekov, briefingy, výsledky aj priestor na feedback. Ak si úplný nováčik, ozvi sa adminom a pomôžeme ti s nastavením a prvými jazdami.",
+        contact_title: "Kontakt",
+        contact_discord_label: "Discord komunita",
+        contact_email_label: "E-mail",
+        contact_note:
+          "Napíš nám, ak máš otázky ohľadom ligy, partnerstva alebo streamovania pretekov.",
+        contact_right:
+          "Hľadáme podobne naladených ľudí, komentátorov, timekeeperov aj partnerov, ktorí chcú byť pri budovaní SK/CZ simracing scény. Ak máš nápad na spoločný projekt alebo špeciálny event, ozvi sa nám.",
+        footer_text: "3Star Racing – simracing komunita SK & CZ"
+      },
+      cz: {
+        nav_home: "Domů",
+        nav_about: "O nás",
+        nav_community: "Komunita",
+        nav_join: "Jak se přidat",
+        nav_contact: "Kontakt",
+        hero_tagline: "Česko-slovenská simracing komunita",
+        hero_title_line1: "3STAR",
+        hero_title_line2: "RACING",
+        hero_intro:
+          "Komunita simracerů z Česka a Slovenska, kteří chtějí jezdit čistě, fér a v pohodové atmosféře. Od prvních kol až po endurance šampionáty – máme místo pro každého.",
+        hero_cta_primary: "Přidej se na Discord",
+        hero_cta_secondary: "Podívej se na naše série",
+        about_title: "Kdo jsme",
+        about_body:
+          "3Star Racing je komunita simracerů z Česka a Slovenska, kteří mají rádi čisté závodění, fair-play a přátelskou atmosféru. Pořádáme ligy, fun racy i endurance závody v oblíbených simulátorech a rádi pomůžeme nováčkům s prvními koly.",
+        about_body_extra:
+          "Neřešíme, jestli jezdíš na volantu krátko nebo dlouho – důležitý je respekt na trati. Sdílíme setupy, poradíme s nastavením a společně analyzujeme replaye, aby ses mohl postupně zlepšovat.",
+        community_title: "V jakých titulech jezdíme",
+        community_intro: "Jezdíme hlavně tyto simulátory:",
+        community_item_acc:
+          "Assetto Corsa Competizione – GT3/GT4 šampionáty, endurance akce a tréninky.",
+        community_item_lmu:
+          "Le Mans Ultimate – LMGT3, prototypy, hypercary a legendární tratě WEC.",
+        community_item_ir:
+          "iRacing – oficiální série, ligové závody a příprava na postup licencí.",
+        join_title: "Jak se přidat",
+        join_step1: "1. Vstup na náš Discord server (odkaz níže).",
+        join_step2: "2. Projdi si sekci „pravidla“ a krátký onboarding.",
+        join_step3: "3. Vyber si sérii, přihlas se do závodu a uvidíme se na trati!",
+        join_note:
+          "Většina komunikace probíhá na Discordu – najdeš tam kalendář závodů, briefingy, výsledky i prostor na feedback. Pokud jsi úplný nováček, napiš adminům a pomůžeme ti se startem.",
+        contact_title: "Kontakt",
+        contact_discord_label: "Discord komunita",
+        contact_email_label: "E-mail",
+        contact_note:
+          "Napiš nám, pokud máš dotazy k lize, partnerství nebo streamování závodů.",
+        contact_right:
+          "Hledáme podobně naladěné jezdce, komentátory, timekeepery i partnery, kteří chtějí posunout CZ/SK simracing scénu. Máš nápad na speciální event nebo spolupráci? Určitě se ozvi.",
+        footer_text: "3Star Racing – simracing komunita CZ & SK"
+      },
+      en: {
+        nav_home: "Home",
+        nav_about: "About",
+        nav_community: "Community",
+        nav_join: "How to join",
+        nav_contact: "Contact",
+        hero_tagline: "Slovak & Czech simracing community",
+        hero_title_line1: "3STAR",
+        hero_title_line2: "RACING",
+        hero_intro:
+          "A Slovak–Czech simracing community focused on clean racing, fair-play and a friendly atmosphere. From your very first laps to serious endurance championships – there is a place for everyone.",
+        hero_cta_primary: "Join our Discord",
+        hero_cta_secondary: "See our series",
+        about_title: "Who we are",
+        about_body:
+          "3Star Racing is a Slovak-Czech simracing community focused on clean racing, fair-play and a friendly atmosphere. We run leagues, fun races and endurance events in popular simulators and we are happy to help new drivers with their first laps.",
+        about_body_extra:
+          "It does not matter how long you have been racing – attitude and respect on track are what counts. We share setups, help with simulator configuration and review replays together so you can improve step by step.",
+        community_title: "What we race",
+        community_intro: "We mainly race in these simulators:",
+        community_item_acc:
+          "Assetto Corsa Competizione – GT3/GT4 championships, endurance events and practice sessions.",
+        community_item_lmu:
+          "Le Mans Ultimate – LMGT3, prototypes, hypercars and classic WEC tracks.",
+        community_item_ir:
+          "iRacing – official series, league races and coaching for license progression.",
+        join_title: "How to join",
+        join_step1: "1. Join our Discord server (link below).",
+        join_step2: "2. Read the rules and the short onboarding channel.",
+        join_step3: "3. Pick a series, register for a race and see you on track!",
+        join_note:
+          "Most of our coordination happens on Discord – race calendar, briefings, results and feedback channels are all there. If you are completely new to simracing, send a message to the admins and we will help you get started.",
+        contact_title: "Contact",
+        contact_discord_label: "Discord community",
+        contact_email_label: "E-mail",
+        contact_note:
+          "Reach out if you have questions about the league, partnerships or race broadcasting.",
+        contact_right:
+          "We are open to collaboration with drivers, commentators, timekeepers and partners who want to help grow the CZ/SK simracing scene. If you have an idea for a special event or project, let us know.",
+        footer_text: "3Star Racing – simracing community"
+      }
+    };
+
+    var langToHtml = { sk: "sk", cz: "cs", en: "en" };
+
+    function setLanguage(lang) {
+      var dict = translations[lang] || translations.sk;
+      document.documentElement.lang = langToHtml[lang] || "sk";
+
+      var elements = document.querySelectorAll("[data-i18n]");
+      for (var i = 0; i < elements.length; i++) {
+        var el = elements[i];
+        var key = el.getAttribute("data-i18n");
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      }
+
+      var buttons = document.querySelectorAll(".lang-btn");
+      for (var j = 0; j < buttons.length; j++) {
+        var btn = buttons[j];
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      }
+    }
+
+    // inicializácia – po načítaní HTML je script na konci, takže DOM už existuje
+    setLanguage("sk");
+  </script>
+</body>
+</html>
