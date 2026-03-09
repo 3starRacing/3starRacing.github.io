@@ -461,7 +461,7 @@ footer span:last-child {
 
 .fleet-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.6rem;
   margin-top: 1.2rem;
 }
@@ -483,7 +483,7 @@ footer span:last-child {
 
 .class-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.9rem;
 }
 
@@ -557,6 +557,12 @@ footer span:last-child {
   opacity: 0.92;
 }
 
+.driver-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .driver-name {
   margin: 0;
   font-size: 0.86rem;
@@ -564,6 +570,20 @@ footer span:last-child {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1.15;
+}
+
+.driver-flags {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.driver-flag {
+  width: 18px;
+  height: 14px;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
 .driver-badges {
@@ -628,7 +648,7 @@ footer span:last-child {
   }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1060px) {
   .hero {
     min-height: 320px;
     background-position: center right;
@@ -655,9 +675,12 @@ footer span:last-child {
 
   .two-col,
   .sim-grid,
-  .contact-grid,
-  .fleet-grid {
+  .contact-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .class-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .section-header {

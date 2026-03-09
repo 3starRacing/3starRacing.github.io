@@ -1,31 +1,35 @@
 const DRIVERS = [
   {
-name: "Juraj Durica",
-badges: ["iRacing", "GT3"],
-simulator: "iRacing",
-classes: "GT3",
-achievements: "—"
+    name: "Juraj Durica",
+    flags: "SK,DE",
+    badges: ["iRacing", "GT3"],
+    simulator: "iRacing",
+    classes: "GT3",
+    achievements: "—"
   },
   {
-name: "Martin Kravec",
-badges: ["LMU", "LMGT3", "HY/LMP2/LMP3"],
-simulator: "LMU",
-classes: "LMGT3, HY, LMP2, LMP3",
-achievements: "—"
+    name: "Martin Kravec",
+    flags: "SK",
+    badges: ["LMU", "LMGT3", "HY/LMP2/LMP3"],
+    simulator: "LMU",
+    classes: "LMGT3, HY, LMP2, LMP3",
+    achievements: "—"
   },
   {
-name: "",
-badges: ["Le Mans Ultimate", "LMGT3"],
-simulator: "Le Mans Ultimate",
-classes: "LMGT3",
-achievements: "—"
+    name: "",
+    flags: "",
+    badges: ["Le Mans Ultimate", "LMGT3"],
+    simulator: "Le Mans Ultimate",
+    classes: "LMGT3",
+    achievements: "—"
   },
   {
-name: "Jazdec #4",
-badges: ["ACC", "GT4"],
-simulator: "ACC",
-classes: "GT4",
-achievements: "—"
+    name: "Jazdec #4",
+    flags: "",
+    badges: ["ACC", "GT4"],
+    simulator: "ACC",
+    classes: "GT4",
+    achievements: "—"
   }
 ];
 
@@ -44,7 +48,12 @@ function renderDrivers() {
       </svg>
     </div>
     <div>
-      <h3 class="driver-name">${driver.name}</h3>
+      <div class="driver-name-wrap">
+        <h3 class="driver-name">${driver.name}</h3>
+        ${driver.flags ? `<div class="driver-flags">
+          ${driver.flags.split(',').map(f => `<img src="flags/${f.trim().toLowerCase()}.svg" alt="${f.trim()}" title="${f.trim()}" class="driver-flag" />`).join('')}
+        </div>` : ''}
+      </div>
       <div class="driver-badges">
         ${driver.badges.map(badge => `<span class="badge-pill">${badge}</span>`).join('')}
       </div>
