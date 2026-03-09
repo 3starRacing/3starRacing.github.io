@@ -6,7 +6,7 @@ const DRIVERS = [
     simulator: "iRacing",
     classes: "GT3",
     achievements: "—",
-    emailUser: "juraj",
+    emailUser: "jdurica",
     emailDomain: "3star.racing"
   },
   {
@@ -15,8 +15,8 @@ const DRIVERS = [
     badges: ["LMU", "LMGT3", "HY/LMP2/LMP3"],
     simulator: "LMU",
     classes: "LMGT3, HY, LMP2, LMP3",
-    achievements: "—",
-    emailUser: "martin",
+    achievements: "",
+    emailUser: "martinkravec",
     emailDomain: "3star.racing"
   },
   {
@@ -33,7 +33,7 @@ const DRIVERS = [
     badges: ["ACC", "GT4"],
     simulator: "ACC",
     classes: "GT4",
-    achievements: "—"
+    achievements: ""
   }
 ];
 
@@ -93,10 +93,10 @@ function renderDrivers() {
       <span class="driver-label" data-i18n="drivers_label_classes">Triedy</span>
       <span class="driver-value">${driver.classes}</span>
     </div>
-    <div class="driver-line">
+    ${driver.achievements ? `<div class="driver-line">
       <span class="driver-label" data-i18n="drivers_label_achievements">Úspechy</span>
       <span class="driver-value">${driver.achievements}</span>
-    </div>
+    </div>` : ''}
     ${driver.emailUser ? `<div class="driver-line">
       <span class="driver-label" data-i18n="drivers_label_email">E-mail</span>
       <span class="driver-value">${obfuscatedEmailHTML(driver.emailUser, driver.emailDomain)}</span>
