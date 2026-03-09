@@ -66,7 +66,7 @@ function renderDrivers() {
       <span class="driver-value">${driver.simulator}</span>
     </div>
     <div class="driver-line">
-      <span class="driver-label" data-i18n="drivers_label_classes">Classy</span>
+      <span class="driver-label" data-i18n="drivers_label_classes">Triedy</span>
       <span class="driver-value">${driver.classes}</span>
     </div>
     <div class="driver-line">
