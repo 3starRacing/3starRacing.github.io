@@ -552,8 +552,8 @@ footer span:last-child {
 }
 
 .driver-avatar svg {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   opacity: 0.92;
 }
 
@@ -583,7 +583,7 @@ footer span:last-child {
   height: 14px;
   border-radius: 2px;
   object-fit: cover;
-  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 .driver-badges {

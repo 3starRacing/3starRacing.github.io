@@ -41,10 +41,14 @@ function renderDrivers() {
 <article class="driver-card">
   <div class="driver-top">
     <div class="driver-avatar" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M7.5 10.2c.3-3.6 3-6.2 6.7-6.2 3.8 0 6.5 2.6 6.8 6.2.1 1.2.1 2.5 0 3.8-.1 1.1-.9 1.9-2 1.9H9.5c-1.1 0-1.9-.8-2-1.9-.1-1.3-.1-2.6 0-3.8Z" stroke="currentColor" stroke-width="1.6" />
-        <path d="M9 12.4h6.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-        <path d="M6.6 16.9c-1.8.6-3.1 2-3.1 3.7V22h17v-1.4c0-1.7-1.3-3.1-3.1-3.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 11a8 8 0 0 1 16 0v4.5a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 15.5V11z" fill="currentColor" fill-opacity="0.05" />
+        <path d="M4 11h16v1a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-1z" fill="currentColor" fill-opacity="0.2" />
+        <path d="M12 3v4" />
+        <path d="M10 16h4" />
+        <path d="M11 18h2" />
+        <circle cx="4" cy="11.5" r="1.5" stroke="none" fill="currentColor" />
+        <circle cx="20" cy="11.5" r="1.5" stroke="none" fill="currentColor" />
       </svg>
     </div>
     <div>
