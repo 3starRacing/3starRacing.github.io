@@ -150,7 +150,18 @@
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
     }
+
+    .lang-flag {
+      width: 16px;
+      height: auto;
+      border-radius: 2px;
+      object-fit: cover;
+    }
+
 
     .lang-btn + .lang-btn {
       border-left: 1px solid rgba(39, 39, 42, 0.95);
@@ -589,9 +600,18 @@
 
         <div class="lang-switcher" aria-label="Language switcher">
           <!-- jednoduché onclick volania -->
-          <button class="lang-btn active" data-lang="sk" onclick="setLanguage('sk')">SK</button>
-          <button class="lang-btn" data-lang="cz" onclick="setLanguage('cz')">CZ</button>
-          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn active" data-lang="sk" onclick="setLanguage('sk')">
+            <img src="flags/sk.svg" alt="SK" class="lang-flag" />
+            SK
+          </button>
+          <button class="lang-btn" data-lang="cz" onclick="setLanguage('cz')">
+            <img src="flags/cz.svg" alt="CZ" class="lang-flag" />
+            CZ
+          </button>
+          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">
+            <img src="flags/gb.svg" alt="EN" class="lang-flag" />
+            EN
+          </button>
         </div>
       </nav>
     </div>
