@@ -1,6 +1,7 @@
 const DRIVERS = [
   {
     name: "Juraj Durica",
+    avatar: "",
     flags: "SK,DE",
     badges: ["iRacing", "GT3"],
     simulator: "iRacing",
@@ -11,6 +12,7 @@ const DRIVERS = [
   },
   {
     name: "Martin Kravec",
+    avatar: "https://i.pravatar.cc/150?u=test1",
     flags: "SK",
     badges: ["LMU", "LMGT3", "HY/LMP2/LMP3"],
     simulator: "LMU",
@@ -61,15 +63,18 @@ function renderDrivers() {
 <article class="driver-card">
   <div class="driver-top">
     <div class="driver-avatar" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M4 11a8 8 0 0 1 16 0v6.5a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 17.5V11z" fill="currentColor" fill-opacity="0.05" />
-        <path d="M4 11h16v1.5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-1.5z" fill="currentColor" fill-opacity="0.2" />
-        <path d="M12 3v4" />
-        <path d="M10 17.2h4" />
-        <path d="M11 20.5h2" />
-        <circle cx="4" cy="11.5" r="1.5" stroke="none" fill="currentColor" />
-        <circle cx="20" cy="11.5" r="1.5" stroke="none" fill="currentColor" />
-      </svg>
+      ${driver.avatar ?
+      `<img src="${driver.avatar}" alt="${driver.name}" />` :
+      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 11a8 8 0 0 1 16 0v6.5a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 17.5V11z" fill="currentColor" fill-opacity="0.05" />
+          <path d="M4 11h16v1.5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-1.5z" fill="currentColor" fill-opacity="0.2" />
+          <path d="M12 3v4" />
+          <path d="M10 17.2h4" />
+          <path d="M11 20.5h2" />
+          <circle cx="4" cy="11.5" r="1.5" stroke="none" fill="currentColor" />
+          <circle cx="20" cy="11.5" r="1.5" stroke="none" fill="currentColor" />
+        </svg>`
+    }
     </div>
     <div>
       <div class="driver-name-wrap">
