@@ -635,6 +635,22 @@ footer span:last-child {
   line-height: 1.45;
 }
 
+/* Obfuscated email – RTL trick so bots read reversed chars */
+.email-obf {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  user-select: none;        /* block casual copy-paste of garbled text */
+}
+
+.driver-email-link {
+  color: #f97373;
+  transition: color 0.15s ease-out;
+}
+
+.driver-email-link:hover {
+  color: var(--accent);
+}
+
 
 /* RESPONSIVE */
 

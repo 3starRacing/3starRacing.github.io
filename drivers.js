@@ -5,7 +5,9 @@ const DRIVERS = [
     badges: ["iRacing", "GT3"],
     simulator: "iRacing",
     classes: "GT3",
-    achievements: "—"
+    achievements: "—",
+    emailUser: "juraj",
+    emailDomain: "3star.racing"
   },
   {
     name: "Martin Kravec",
@@ -13,7 +15,9 @@ const DRIVERS = [
     badges: ["LMU", "LMGT3", "HY/LMP2/LMP3"],
     simulator: "LMU",
     classes: "LMGT3, HY, LMP2, LMP3",
-    achievements: "—"
+    achievements: "—",
+    emailUser: "martin",
+    emailDomain: "3star.racing"
   },
   {
     name: "",
@@ -32,6 +36,22 @@ const DRIVERS = [
     achievements: "—"
   }
 ];
+
+/**
+ * Obfuscates an email for display.
+ * The text is rendered RTL so bots scraping the DOM get reversed characters,
+ * but a nested LTR span makes it visually correct for humans.
+ * The mailto: href is assembled from parts so it never appears as a plain string.
+ */
+function obfuscatedEmailHTML(user, domain) {
+  const addr = user + '\u0040' + domain;           // build at runtime
+  const reversed = addr.split('').reverse().join(''); // reverse for the RTL trick
+  return `<a class="driver-email-link" href="#"
+             data-u="${user}" data-d="${domain}"
+             onclick="this.href='mai'+'lto:'+this.dataset.u+'@'+this.dataset.d;">
+            <span class="email-obf">${reversed}</span>
+          </a>`;
+}
 
 function renderDrivers() {
   const container = document.getElementById('driver-grid');
@@ -77,6 +97,10 @@ function renderDrivers() {
       <span class="driver-label" data-i18n="drivers_label_achievements">Úspechy</span>
       <span class="driver-value">${driver.achievements}</span>
     </div>
+    ${driver.emailUser ? `<div class="driver-line">
+      <span class="driver-label" data-i18n="drivers_label_email">E-mail</span>
+      <span class="driver-value">${obfuscatedEmailHTML(driver.emailUser, driver.emailDomain)}</span>
+    </div>` : ''}
   </div>
 </article>
   `).join('');
