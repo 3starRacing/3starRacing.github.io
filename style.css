@@ -203,7 +203,7 @@ section {
       rgba(0, 0, 0, 0.98),
       rgba(0, 0, 0, 0.82) 44%,
       rgba(0, 0, 0, 0.3)),
-    url("hero_car.png");
+    url("images/hero_car.png");
   background-size: cover;
   background-position: right center;
 }
@@ -723,6 +723,18 @@ footer span:last-child {
   }
 }
 
+@media (max-width: 759px) {
+  .lang-switcher {
+    flex: 0 0 100%;
+    justify-content: center;
+    margin-top: 0.2rem;
+  }
+
+  :root {
+    --nav-height: 170px;
+  }
+}
+
 @media (max-width: 640px) {
   body {
     overflow-x: hidden;
@@ -774,7 +786,7 @@ footer span:last-child {
         rgba(0, 0, 0, 0.94),
         rgba(0, 0, 0, 0.76) 55%,
         rgba(0, 0, 0, 0.18)),
-      url("hero_car.png");
+      url("images/hero_car.png");
     background-position: center;
   }
 
