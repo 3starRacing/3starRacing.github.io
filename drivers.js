@@ -11,6 +11,17 @@ const DRIVERS = [
     emailDomain: "3star.racing"
   },
   {
+    name: "MG",
+    avatar: "images/avatars/mg.webp",
+    flags: "SK,US",
+    badges: ["ACC", "iRacing", "LMU", "GT3", "Nascar"],
+    simulator: "ACC, iRacing, LMU",
+    classes: "GT3, Nascar",
+    achievements: "",
+    emailUser: "mg",
+    emailDomain: "3star.racing"
+  },
+  {
     name: "Martin Kravec",
     avatar: "",
     flags: "SK",
