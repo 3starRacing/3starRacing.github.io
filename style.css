@@ -12,6 +12,7 @@
   --radius-xl: 1.5rem;
   --radius-full: 999px;
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.9);
+  --nav-height: 80px;
 }
 
 * {
@@ -20,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
 }
 
 body {
@@ -698,6 +700,10 @@ footer span:last-child {
     font-size: 0.8rem;
   }
 
+  :root {
+    --nav-height: 140px;
+  }
+
   .two-col,
   .sim-grid,
   .contact-grid {
@@ -755,6 +761,10 @@ footer span:last-child {
     flex: 0 0 100%;
     justify-content: center;
     margin-top: 0.2rem;
+  }
+
+  :root {
+    --nav-height: 160px;
   }
 
   .hero {
