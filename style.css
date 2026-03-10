@@ -616,6 +616,7 @@ footer span:last-child {
 .driver-lines {
   display: grid;
   gap: 0.35rem;
+  align-self: start;
 }
 
 .driver-line {
@@ -623,6 +624,7 @@ footer span:last-child {
   align-items: baseline;
   justify-content: space-between;
   gap: 0.8rem;
+  min-height: 1.6rem;
 }
 
 .driver-line+.driver-line {
@@ -643,6 +645,17 @@ footer span:last-child {
   font-size: 0.86rem;
   text-align: right;
   line-height: 1.45;
+}
+
+.driver-value-achievements {
+  white-space: pre-line;
+}
+
+.ordinal {
+  font-size: 0.7em;
+  vertical-align: super;
+  margin-left: 1px;
+  opacity: 0.9;
 }
 
 /* Obfuscated email – RTL trick so bots read reversed chars */

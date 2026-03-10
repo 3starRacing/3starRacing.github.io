@@ -6,7 +6,7 @@ const DRIVERS = [
     badges: ["iRacing", "GT3"],
     simulator: "iRacing",
     classes: "GT3",
-    achievements: "—",
+    achievements: "",
     emailUser: "jdurica",
     emailDomain: "3star.racing"
   },
@@ -29,12 +29,12 @@ const DRIVERS = [
     simulator: "LMU",
     classes: "LMGT3, prototypes",
     achievements: "",
-    emailUser: "martinkravec",
+    emailUser: "mk",
     emailDomain: "3star.racing"
   },
   {
     name: "Martin Margecanský",
-    avatar: "",
+    avatar: "images/avatars/mm.png",
     flags: "SK",
     badges: ["iRacing", "GT3", "LMU"],
     simulator: "LMU, iRacing",
@@ -44,11 +44,33 @@ const DRIVERS = [
     emailDomain: "3star.racing"
   },
   {
+    name: "Jakub Sehnal",
+    avatar: "images/avatars/js.png",
+    flags: "CZ",
+    badges: ["iRacing", "LMU"],
+    simulator: "iRacing, LMU",
+    classes: "GT3, SCCA, HY, LMP2, LMP3",
+    achievements: "1st 6h Thrustmaster Monza\n1st 3h Ironman Imola\n1st 3h Ironman Le Mans\n3rd 4h Interlagos",
+    emailUser: "jakubsehnal",
+    emailDomain: "3star.racing"
+  },
+  {
     name: "Koudy Stříbrský",
     avatar: "",
     flags: "CZ",
     badges: ["GT7", "GT3"],
     simulator: "GT7, ACC",
+    classes: "GT3",
+    achievements: "",
+    emailUser: "",
+    emailDomain: ""
+  },
+  {
+    name: "Vojtěch Tržil",
+    avatar: "",
+    flags: "CZ",
+    badges: ["ACC", "iRacing", "GT3"],
+    simulator: "ACC, iRacing",
     classes: "GT3",
     achievements: "",
     emailUser: "",
@@ -70,6 +92,14 @@ function obfuscatedEmailHTML(user, domain) {
              onclick="this.href='mai'+'lto:'+this.dataset.u+'@'+this.dataset.d;">
             <span class="email-obf">${reversed}</span>
           </a>`;
+}
+
+/**
+ * Formats ordinal numbers (1st, 2nd, 3rd, etc.) with a styled span for the suffix.
+ */
+function formatOrdinals(text) {
+  if (!text) return text;
+  return text.replace(/(\d+)(st|nd|rd|th)/gi, '$1<span class="ordinal">$2</span>');
 }
 
 function renderDrivers() {
@@ -117,7 +147,7 @@ function renderDrivers() {
     </div>
     ${driver.achievements ? `<div class="driver-line">
       <span class="driver-label" data-i18n="drivers_label_achievements">Úspechy</span>
-      <span class="driver-value">${driver.achievements}</span>
+      <span class="driver-value driver-value-achievements">${formatOrdinals(driver.achievements)}</span>
     </div>` : ''}
     ${driver.emailUser ? `<div class="driver-line">
       <span class="driver-label" data-i18n="drivers_label_email">E-mail</span>
