@@ -1,6 +1,6 @@
 const DRIVERS = [
   {
-    name: "Juraj Durica",
+    name: "Juraj Ďurica",
     avatar: "",
     flags: "SK,DE",
     badges: ["iRacing", "GT3"],
@@ -12,30 +12,36 @@ const DRIVERS = [
   },
   {
     name: "Martin Kravec",
-    avatar: "https://i.pravatar.cc/150?u=test1",
+    avatar: "",
     flags: "SK",
     badges: ["LMU", "LMGT3", "HY/LMP2/LMP3"],
     simulator: "LMU",
-    classes: "LMGT3, HY, LMP2, LMP3",
+    classes: "LMGT3, prototypes",
     achievements: "",
     emailUser: "martinkravec",
     emailDomain: "3star.racing"
   },
   {
-    name: "",
-    flags: "",
-    badges: ["Le Mans Ultimate", "LMGT3"],
-    simulator: "Le Mans Ultimate",
-    classes: "LMGT3",
-    achievements: "—"
+    name: "Martin Margecanský",
+    avatar: "",
+    flags: "SK",
+    badges: ["iRacing", "GT3", "LMU"],
+    simulator: "LMU, iRacing",
+    classes: "GT3",
+    achievements: "",
+    emailUser: "mm",
+    emailDomain: "3star.racing"
   },
   {
-    name: "Jazdec #4",
-    flags: "",
-    badges: ["ACC", "GT4"],
-    simulator: "ACC",
-    classes: "GT4",
-    achievements: ""
+    name: "Koudy Stříbrský",
+    avatar: "",
+    flags: "CZ",
+    badges: ["GT7", "GT3"],
+    simulator: "GT7, ACC",
+    classes: "GT3",
+    achievements: "",
+    emailUser: "",
+    emailDomain: ""
   }
 ];
 

@@ -483,7 +483,7 @@ footer span:last-child {
 
 .class-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
 }
 
@@ -512,7 +512,7 @@ footer span:last-child {
 
 .driver-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
 }
 
@@ -639,7 +639,8 @@ footer span:last-child {
 .email-obf {
   direction: rtl;
   unicode-bidi: bidi-override;
-  user-select: none;        /* block casual copy-paste of garbled text */
+  user-select: none;
+  /* block casual copy-paste of garbled text */
 }
 
 .driver-email-link {
@@ -696,6 +697,10 @@ footer span:last-child {
   }
 
   .class-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .driver-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
