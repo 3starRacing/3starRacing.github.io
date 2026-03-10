@@ -14,7 +14,7 @@ const DRIVERS = [
     name: "Martin Kravec",
     avatar: "",
     flags: "SK",
-    badges: ["LMU", "LMGT3", "HY/LMP2/LMP3"],
+    badges: ["LMU", "LMGT3", "HY", "LMP2", "LMP3"],
     simulator: "LMU",
     classes: "LMGT3, prototypes",
     achievements: "",
