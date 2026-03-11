@@ -44,6 +44,17 @@ const DRIVERS = [
     emailDomain: "3star.racing"
   },
   {
+    name: "Peter Mišák",
+    avatar: "",
+    flags: "SK",
+    badges: ["ytb: @rageracing_svk"],
+    simulator: "LMU",
+    classes: "GT3",
+    achievements: "",
+    emailUser: "",
+    emailDomain: ""
+  },
+  {
     name: "Jakub Sehnal",
     avatar: "images/avatars/js.png",
     flags: "CZ",
