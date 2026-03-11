@@ -1,6 +1,7 @@
 var translations = {
   sk: {
     nav_home: "Domov",
+    nav_news: "Novinky",
     nav_about: "O nás",
     nav_community: "Tím",
     nav_fleet: "Autá & jazdci",
@@ -13,6 +14,12 @@ var translations = {
       "je SK/CZ simracing tím založený v roku 2021, postavený na čistom pretekaní, férovosti a dobrej atmosfére. Jazdíme na iRacing, Le Mans Ultimate a ACC a cielime na konkurencieschopné výsledky od šampionátov až po endurance.",
     hero_cta_primary: "Pridaj sa na Discord",
     hero_cta_secondary: "Pozri si naše série",
+    news_title: "Novinky",
+    news_intro: "Aktuálne dianie v tíme",
+    news_loading: "Načítavam...",
+    news_error: "Chyba pri načítaní noviniek.",
+    news_prev: "Predchádzajúce",
+    news_next: "Ďalšie",
     about_title: "Kto sme",
     about_body:
       "3Star Racing bol založený v roku 2021 ako pretekársky tím určený pre účasť v šampionátoch organizácie CORG (Czech Online Race Group). Od svojho vzniku sa tím vyprofiloval ako stabilný a rešpektovaný účastník online pretekárskej scény, pričom dosiahol viacero pódiových umiestnení v individuálnych aj tímových hodnoteniach, ako v jednotlivých pretekoch, tak aj v celkových výsledkoch šampionátov. Rok 2025 predstavuje významný míľnik v histórii 3Star Racing. Tím rozširuje svoje pôsobenie a vstupuje do oficiálnych šampionátov organizovaných prestížnymi inštitúciami, ako sú FIA, IMSA, NASCAR, WEC, Porsche AG, SAMŠ a ďalšie.",
@@ -53,6 +60,7 @@ var translations = {
   },
   cz: {
     nav_home: "Domů",
+    nav_news: "Novinky",
     nav_about: "O nás",
     nav_community: "Tým",
     nav_fleet: "Auta & jezdci",
@@ -65,6 +73,12 @@ var translations = {
       "je CZ/SK simracing tým založený v roce 2021, postavený na čistém závodění, férovosti a dobré atmosféře. Jezdíme na iRacing, Le Mans Ultimate a ACC a míříme na konkurenceschopné výsledky od šampionátů až po endurance.",
     hero_cta_primary: "Přidej se na Discord",
     hero_cta_secondary: "Podívej se na naše série",
+    news_title: "Novinky",
+    news_intro: "Aktuální dění v týmu",
+    news_loading: "Načítám...",
+    news_error: "Chyba při načítání novinek.",
+    news_prev: "Předchozí",
+    news_next: "Další",
     about_title: "Kdo jsme",
     about_body:
       "3Star Racing byl založen v roce 2021 jako závodní tým určený pro účast v šampionátech organizace CORG (Czech Online Race Group). Od svého vzniku se tým vyprofiloval jako stabilní a respektovaný účastník online závodní scény a dosáhl několika pódiových umístění v individuálním i týmovém hodnocení, jak v jednotlivých závodech, tak i v celkových výsledcích šampionátů. Rok 2025 představuje významný milník v historii 3Star Racing. Tým rozšiřuje své působení a vstupuje do oficiálních šampionátů pořádaných prestižními institucemi, jako jsou FIA, IMSA, NASCAR, WEC, Porsche AG, SAMŠ a další.",
@@ -105,6 +119,7 @@ var translations = {
   },
   en: {
     nav_home: "Home",
+    nav_news: "News",
     nav_about: "About",
     nav_community: "Team",
     nav_fleet: "Cars & drivers",
@@ -117,6 +132,12 @@ var translations = {
       "a Slovak/Czech simracing team founded in 2021, built on clean racing, fair play, and a great atmosphere. We compete in iRacing, Le Mans Ultimate, and ACC, aiming for strong results from championships to endurance events.",
     hero_cta_primary: "Join our Discord",
     hero_cta_secondary: "See our series",
+    news_title: "News",
+    news_intro: "Latest team updates",
+    news_loading: "Loading...",
+    news_error: "Error loading news.",
+    news_prev: "Previous",
+    news_next: "Next",
     about_title: "Who we are",
     about_body:
       "3Star Racing was founded in 2021 as a racing team intended to compete in championships organized by CORG (Czech Online Race Group). Since its inception, the team has established itself as a stable and respected participant in the online racing scene, achieving multiple podium finishes in both individual and team standings—across single events as well as overall championship results. The year 2025 marks a major milestone in 3Star Racing’s history. The team is expanding its activities and entering official championships organized by prestigious institutions such as the FIA, IMSA, NASCAR, the WEC, Porsche AG, SAMŠ, and others.",

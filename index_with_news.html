@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3Star Racing – Simracing tím SK/CZ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <img src="3star_logo_transparent.png" alt="3Star Racing logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">3Star Racing</span>
+          <span class="brand-subtitle" data-i18n="hero_tagline">
+            Slovensko-český simracing tím
+          </span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#home" class="nav-link" data-i18n="nav_home">Domov</a>
+        <a href="#news" class="nav-link" data-i18n="news_title">Novinky</a>
+        <a href="#about" class="nav-link" data-i18n="nav_about">O nás</a>
+        <a href="#community" class="nav-link" data-i18n="nav_community">Tím</a>
+        <a href="#fleet" class="nav-link" data-i18n="nav_fleet">Autá &amp; jazdci</a>
+        <a href="#join" class="nav-link" data-i18n="nav_join">Ako sa pridať</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Kontakt</a>
+
+        <div class="lang-switcher" aria-label="Language switcher">
+          <!-- jednoduché onclick volania -->
+          <button class="lang-btn active" data-lang="sk" onclick="setLanguage('sk')">
+            <img src="flags/sk.svg" alt="SK" class="lang-flag" />
+            SK
+          </button>
+          <button class="lang-btn" data-lang="cz" onclick="setLanguage('cz')">
+            <img src="flags/cz.svg" alt="CZ" class="lang-flag" />
+            CZ
+          </button>
+          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">
+            <img src="flags/gb.svg" alt="EN" class="lang-flag" />
+            EN
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page" id="top">
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <div class="badge" data-i18n="hero_tagline">
+            Slovensko-česká simracing tím
+          </div>
+          <h1 class="hero-title">
+            <span data-i18n="hero_title_line1">3STAR</span>
+            <span data-i18n="hero_title_line2">RACING</span>
+          </h1>
+          <p class="hero-tagline" data-i18n="hero_intro">
+            Tím simracerov zo Slovenska a Česka, ktorí chcú jazdiť čisto,
+            férovo a v dobrej atmosfére. Od prvých kôl až po endurance
+            šampionáty – máme miesto pre každého.
+          </p>
+          <div class="hero-meta">
+            <span>ACC</span>
+            <span>Le Mans Ultimate</span>
+            <span>iRacing</span>
+            <span>Clean racing &amp; fair-play</span>
+          </div>
+          <div class="hero-actions">
+            <!-- TODO: doplň reálny Discord invite -->
+            <a href="https://discord.gg/dmPUFsfekv" class="btn btn-primary" target="_blank" rel="noreferrer"
+              data-i18n="hero_cta_primary">
+              Pridaj sa na Discord
+            </a>
+            <a href="#community" class="btn btn-ghost" data-i18n="hero_cta_secondary">
+              Pozri si naše série
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWS -->
+      <section id="news">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="news_title">Novinky</h2>
+            <span class="section-kicker">News</span>
+          </div>
+          <div id="news-container">
+            <p class="muted" data-i18n="news_loading">Načítavam...</p>
+          </div>
+
+          <div class="news-pagination" id="news-pagination" style="display: none;">
+            <button class="btn btn-ghost btn-sm" id="btn-prev-news" onclick="changeNewsPage(-1)"
+              data-i18n="news_prev">Predchádzajúce</button>
+            <span id="news-page-indicator" class="muted" style="margin: 0 1rem; font-size: 0.9em;"></span>
+            <button class="btn btn-ghost btn-sm" id="btn-next-news" onclick="changeNewsPage(1)"
+              data-i18n="news_next">Ďalšie</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="about_title">Kto sme</h2>
+            <span class="section-kicker">About</span>
+          </div>
+          <div class="two-col">
+            <p class="muted" data-i18n="about_body">
+              3Star Racing je tím simracerov z SK a CZ, ktorí milujú čisté
+              preteky, fair-play a dobrú atmosféru. Organizujeme ligy, fun race
+              a endurance preteky v obľúbených simulátoroch a radi pomôžeme
+              nováčikom s prvými kolami.
+            </p>
+            <p class="muted" data-i18n="about_body_extra">
+              Nezáleží na tom, ako dlho jazdíš – dôležitý je prístup. Venujeme sa
+              nastaveniu simulátorov, zdieľaniu setupov, spoločným tréningom aj
+              analýze replayov, aby si sa mohol krok za krokom zlepšovať.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMUNITY -->
+      <section id="community">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="community_title">
+              V akých tituloch jazdíme
+            </h2>
+            <span class="section-kicker">Sim titles</span>
+          </div>
+          <p class="muted" data-i18n="community_intro">
+            Jazdíme hlavne tieto simulátory:
+          </p>
+
+          <div class="sim-grid">
+            <div class="sim-card">
+              <div class="sim-title">Assetto Corsa Competizione</div>
+              <p class="sim-body" data-i18n="community_item_acc">
+                Assetto Corsa Competizione – GT3/GT4 šampionáty, vytrvalostné
+                eventy a tréninky.
+              </p>
+            </div>
+            <div class="sim-card">
+              <div class="sim-title">Le Mans Ultimate</div>
+              <p class="sim-body" data-i18n="community_item_lmu">
+                Le Mans Ultimate – prototypy, hypercary a legendárne okruhy WEC.
+              </p>
+            </div>
+            <div class="sim-card">
+              <div class="sim-title">iRacing</div>
+              <p class="sim-body" data-i18n="community_item_ir">
+                iRacing – oficiálne série, ligové preteky a príprava na
+                licenčné postupy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- FLEET -->
+      <section id="fleet">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="fleet_title">Autá &amp; jazdci</h2>
+            <span class="section-kicker">Fleet</span>
+          </div>
+
+          <p class="muted" data-i18n="fleet_intro">
+            Prehľad tried, ktoré jazdíme, a jazdcov v tíme.
+          </p>
+
+          <div class="fleet-grid">
+            <div>
+              <h3 class="fleet-subtitle" data-i18n="fleet_cars_title">Triedy / autá</h3>
+              <p class="muted fleet-note" data-i18n="fleet_cars_intro">
+                Najčastejšie jazdíme tieto triedy.
+              </p>
+
+              <div class="class-grid">
+                <div class="class-card">
+                  <div class="class-name">GT3</div>
+                  <p class="class-meta">iRacing</p>
+                </div>
+                <div class="class-card">
+                  <div class="class-name">LMGT3</div>
+                  <p class="class-meta">Le Mans Ultimate</p>
+                </div>
+                <div class="class-card">
+                  <div class="class-name">Hypercar/LMP2/LMP3</div>
+                  <p class="class-meta">Le Mans Ultimate</p>
+                </div>
+                <div class="class-card">
+                  <div class="class-name">GT3</div>
+                  <p class="class-meta">Assetto Corsa Competizione</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="fleet-subtitle" data-i18n="fleet_drivers_title">Jazdci</h3>
+              <p class="muted fleet-note" data-i18n="fleet_drivers_intro">
+                Základné info o našich jazdcoch.
+              </p>
+
+              <div class="driver-grid" id="driver-grid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOIN -->
+      <section id="join">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="join_title">Ako sa pridať</h2>
+            <span class="section-kicker">Start racing</span>
+          </div>
+          <div class="two-col">
+            <div class="muted">
+              <ul class="steps">
+                <li data-i18n="join_step1">
+                  1. Vstúp na náš Discord server (link nižšie).
+                </li>
+                <li data-i18n="join_step2">
+                  2. Pozri si sekciu „pravidlá“ a krátky onboarding.
+                </li>
+                <li data-i18n="join_step3">
+                  3. Vyber si sériu, nahlás sa do pretekov a vidíme sa na trati!
+                </li>
+              </ul>
+            </div>
+            <p class="muted" data-i18n="join_note">
+              Väčšina komunikácie prebieha na Discorde – tam nájdeš kalendár
+              pretekov, briefingy, výsledky aj priestor na feedback. Ak si
+              úplný nováčik, ozvi sa adminom a pomôžeme ti s nastavením a prvými
+              jazdami.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="contact_title">Kontakt</h2>
+            <span class="section-kicker">Stay in touch</span>
+          </div>
+          <div class="contact-grid">
+            <div>
+              <ul class="contact-list">
+                <li class="contact-item">
+                  <span class="contact-label" data-i18n="contact_discord_label">
+                    Discord
+                  </span>
+                  <span class="contact-value">
+                    <!-- TODO: doplň reálny invite link -->
+                    <a href="https://discord.gg/dmPUFsfekv" target="_blank" rel="noreferrer"
+                      data-i18n="hero_cta_primary">
+                      discord
+                    </a>
+                  </span>
+                </li>
+                <li class="contact-item">
+                  <span class="contact-label" data-i18n="contact_email_label">
+                    E-mail
+                  </span>
+                  <span class="contact-value">
+                    <!-- TODO: uprav na skutočnú adresu -->
+                    <a href="mailto:info@3star.racing">
+                      info@3star.racing
+                    </a>
+                  </span>
+                </li>
+              </ul>
+              <p class="contact-note" data-i18n="contact_note">
+                Napíš nám, ak máš otázky ohľadom ligy, partnerstva alebo
+                streamovania pretekov.
+              </p>
+            </div>
+            <p class="muted" data-i18n="contact_right">
+              Hľadáme podobne naladených ľudí, komentátorov, timekeeperov aj
+              partnerov, ktorí chcú byť pri budovaní SK/CZ simracing tímu. Ak
+              máš nápad na spoločný projekt alebo špeciálny event, ozvi sa nám.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span data-i18n="footer_text">
+        3Star Racing – simracing tím SK &amp; CZ
+      </span>
+    </footer>
+  </div>
+
+  <script src="translations.js"></script>
+  <script src="drivers.js"></script>
+  <script src="scripts.js"></script>
+</body>
+
+</html>
