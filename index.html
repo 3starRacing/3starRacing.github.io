@@ -25,6 +25,7 @@
         <a href="#about" class="nav-link" data-i18n="nav_about">O nás</a>
         <a href="#community" class="nav-link" data-i18n="nav_community">Tím</a>
         <a href="#fleet" class="nav-link" data-i18n="nav_fleet">Autá &amp; jazdci</a>
+        <a href="#gallery" class="nav-link" data-i18n="nav_gallery">Galéria</a>
         <a href="#join" class="nav-link" data-i18n="nav_join">Ako sa pridať</a>
         <a href="#contact" class="nav-link" data-i18n="nav_contact">Kontakt</a>
 
@@ -196,6 +197,21 @@
         </div>
       </section>
 
+      <!-- GALLERY -->
+      <section id="gallery">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="gallery_title">Galéria</h2>
+            <span class="section-kicker">Gallery</span>
+          </div>
+          <p class="muted" data-i18n="gallery_intro">Fotky z pretekov a tímu.</p>
+          <div class="gallery-tabs" id="gallery-tabs" role="tablist"></div>
+          <div class="gallery-grid" id="gallery-grid" aria-live="polite">
+            <p class="muted" data-i18n="gallery_loading">Načítavam...</p>
+          </div>
+        </div>
+      </section>
+
       <!-- JOIN -->
       <section id="join">
         <div class="section-card">
@@ -283,9 +299,21 @@
     </footer>
   </div>
 
+  <!-- LIGHTBOX -->
+  <div class="gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close" onclick="closeLightbox()">&#x2715;</button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous" onclick="lightboxNav(-1)">&#x2039;</button>
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next" onclick="lightboxNav(1)">&#x203A;</button>
+    <div class="lightbox-inner">
+      <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
   <script src="translations.js"></script>
   <script src="drivers.js"></script>
   <script src="scripts.js"></script>
+  <script src="gallery.js"></script>
 </body>
 
 </html>

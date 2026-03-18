@@ -56,7 +56,13 @@ var translations = {
       "Napíš nám, ak máš otázky ohľadom tímu, partnerstva alebo streamovania pretekov.",
     contact_right:
       "Hľadáme podobne naladených ľudí, komentátorov, timekeeperov aj partnerov, ktorí chcú byť pri budovaní SK/CZ simracing tímu. Ak máš nápad na spoločný projekt, ozvi sa nám.",
-    footer_text: "3Star Racing – simracing tím SK & CZ"
+    footer_text: "3Star Racing – simracing tím SK & CZ",
+    nav_gallery: "Galéria",
+    gallery_title: "Galéria",
+    gallery_intro: "Fotky z pretekov a tímu.",
+    gallery_loading: "Načítavam...",
+    gallery_error: "Chyba pri načítaní galérie.",
+    gallery_empty: "Žiadne fotky."
   },
   cz: {
     nav_home: "Domů",
@@ -115,7 +121,13 @@ var translations = {
       "Napiš nám, pokud máš dotazy k lize, partnerství nebo streamování závodů.",
     contact_right:
       "Hledáme podobně naladěné lidi, komentátory, časoměřiče i partnery, kteří chtějí být u budování SK/CZ simracing týmu. Pokud máš nápad na společný projekt, ozvi se nám.",
-    footer_text: "3Star Racing – simracing tým CZ & SK"
+    footer_text: "3Star Racing – simracing tým CZ & SK",
+    nav_gallery: "Galerie",
+    gallery_title: "Galerie",
+    gallery_intro: "Fotky ze závodů a týmu.",
+    gallery_loading: "Načítám...",
+    gallery_error: "Chyba při načítání galerie.",
+    gallery_empty: "Žádné fotky."
   },
   en: {
     nav_home: "Home",
@@ -174,6 +186,12 @@ var translations = {
       "Reach out if you have questions about the league, partnerships or race broadcasting.",
     contact_right:
       "We’re looking for like-minded people—commentators, timekeepers, and partners—who want to be part of building a SK/CZ simracing team. If you have an idea for a joint project, get in touch with us.",
-    footer_text: "3Star Racing – simracing team"
+    footer_text: "3Star Racing – simracing team",
+    nav_gallery: "Gallery",
+    gallery_title: "Gallery",
+    gallery_intro: "Photos from races and the team.",
+    gallery_loading: "Loading...",
+    gallery_error: "Error loading gallery.",
+    gallery_empty: "No photos."
   }
 };

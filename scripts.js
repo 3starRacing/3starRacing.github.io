@@ -28,6 +28,10 @@ function setLanguage(lang) {
   if (typeof renderNews === "function" && document.getElementById("news-container")) {
     renderNews(); // re-render news in selected language
   }
+  if (typeof renderGalleryTabs === "function" && document.getElementById("gallery-tabs")) {
+    renderGalleryTabs();
+    if (typeof activeAlbum !== "undefined" && activeAlbum) renderGalleryGrid();
+  }
 }
 
 // --- NEWS LOGIC ---
@@ -182,6 +186,9 @@ function init() {
     renderDrivers();
   }
   loadNews();
+  if (typeof loadGallery === 'function' && document.getElementById('gallery-grid')) {
+    loadGallery();
+  }
   setLanguage("sk");
 }
 
