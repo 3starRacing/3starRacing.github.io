@@ -1085,8 +1085,13 @@ footer span:last-child {
   transition: background 0.15s, border-color 0.15s, opacity 0.15s;
 }
 
-.lightbox-prev { left: 1.25rem; }
-.lightbox-next { right: 1.25rem; }
+.lightbox-prev {
+  left: 1.25rem;
+}
+
+.lightbox-next {
+  right: 1.25rem;
+}
 
 .lightbox-prev:hover,
 .lightbox-next:hover {
@@ -1112,13 +1117,18 @@ footer span:last-child {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .lightbox-prev { left: 0.4rem; }
-  .lightbox-next { right: 0.4rem; }
+
+  .lightbox-prev {
+    left: 0.4rem;
+  }
+
+  .lightbox-next {
+    right: 0.4rem;
+  }
 }
 
 @media (max-width: 420px) {
   .gallery-grid {
     grid-template-columns: minmax(0, 1fr);
   }
-}
 }
