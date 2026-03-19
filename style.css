@@ -726,6 +726,40 @@ footer span:last-child {
 
 /* RESPONSIVE */
 
+/* Navbar wrap — spustí sa skôr ako ostatné layout zmeny */
+@media (max-width: 1200px) {
+  .nav-inner {
+    padding-inline: 1.1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.3rem 1.1rem;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+  }
+
+  .lang-switcher {
+    order: 2;
+    margin-left: auto;
+  }
+
+  :root {
+    --nav-height: 120px;
+  }
+}
+
 @media (max-width: 1072px) {
   .hero {
     min-height: 320px;
@@ -738,26 +772,6 @@ footer span:last-child {
 
   .page {
     padding-inline: 1.1rem;
-  }
-
-  .nav-inner {
-    padding-inline: 1.1rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .nav-links {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 0.6rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.25rem;
-    font-size: 0.8rem;
-  }
-
-  :root {
-    --nav-height: 140px;
   }
 
   .two-col,
@@ -779,15 +793,27 @@ footer span:last-child {
   }
 }
 
-@media (max-width: 819px) {
-  .lang-switcher {
-    flex: 0 0 100%;
-    justify-content: center;
-    margin-top: 0.2rem;
+@media (max-width: 1029px) {
+  .nav-link {
+    font-size: 1.0rem;
+  }
+}
+
+
+@media (max-width: 839px) {
+  .nav-link {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 709px) {
+
+  .nav-link {
+    font-size: 0.7rem;
   }
 
   :root {
-    --nav-height: 170px;
+    --nav-height: 110px;
   }
 }
 
@@ -821,18 +847,12 @@ footer span:last-child {
   }
 
   .nav-link {
-    font-size: 0.72rem;
+    font-size: 0.95rem;
     letter-spacing: 0.1em;
   }
 
-  .lang-switcher {
-    flex: 0 0 100%;
-    justify-content: center;
-    margin-top: 0.2rem;
-  }
-
   :root {
-    --nav-height: 160px;
+    --nav-height: 140px;
   }
 
   .hero {

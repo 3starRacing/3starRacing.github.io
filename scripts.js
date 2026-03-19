@@ -42,7 +42,7 @@ var newsPerPage = 5;
 var newsUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQwSVDg_a90Rq0_77bTxS3W2AWmDbudWv_7o9I0SOzAqnoG3wRKj1b5Cl9zRpz3Jd5C_lKoU2olA2tr/pub?gid=0&single=true&output=csv";
 
 // use open-source CORS proxy to avoid 'origin null' problem when testing directly from disk 
-//var proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(newsUrl);
+//newsUrl = "https://corsproxy.io/?" + encodeURIComponent(newsUrl);
 
 function loadNews() {
   var container = document.getElementById("news-container");

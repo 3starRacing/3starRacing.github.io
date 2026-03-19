@@ -22,29 +22,30 @@
       </a>
       <nav class="nav-links">
         <a href="#home" class="nav-link" data-i18n="nav_home">Domov</a>
+        <a href="#news" class="nav-link" data-i18n="news_title">Novinky</a>
         <a href="#about" class="nav-link" data-i18n="nav_about">O nás</a>
         <a href="#community" class="nav-link" data-i18n="nav_community">Tím</a>
         <a href="#fleet" class="nav-link" data-i18n="nav_fleet">Autá &amp; jazdci</a>
         <a href="#gallery" class="nav-link" data-i18n="nav_gallery">Galéria</a>
         <a href="#join" class="nav-link" data-i18n="nav_join">Ako sa pridať</a>
         <a href="#contact" class="nav-link" data-i18n="nav_contact">Kontakt</a>
-
-        <div class="lang-switcher" aria-label="Language switcher">
-          <!-- jednoduché onclick volania -->
-          <button class="lang-btn active" data-lang="sk" onclick="setLanguage('sk')">
-            <img src="flags/sk.svg" alt="SK" class="lang-flag" />
-            SK
-          </button>
-          <button class="lang-btn" data-lang="cz" onclick="setLanguage('cz')">
-            <img src="flags/cz.svg" alt="CZ" class="lang-flag" />
-            CZ
-          </button>
-          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">
-            <img src="flags/gb.svg" alt="EN" class="lang-flag" />
-            EN
-          </button>
-        </div>
       </nav>
+
+      <div class="lang-switcher" aria-label="Language switcher">
+        <!-- jednoduché onclick volania -->
+        <button class="lang-btn active" data-lang="sk" onclick="setLanguage('sk')">
+          <img src="flags/sk.svg" alt="SK" class="lang-flag" />
+          SK
+        </button>
+        <button class="lang-btn" data-lang="cz" onclick="setLanguage('cz')">
+          <img src="flags/cz.svg" alt="CZ" class="lang-flag" />
+          CZ
+        </button>
+        <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">
+          <img src="flags/gb.svg" alt="EN" class="lang-flag" />
+          EN
+        </button>
+      </div>
     </div>
   </header>
 
@@ -80,6 +81,27 @@
             <a href="#community" class="btn btn-ghost" data-i18n="hero_cta_secondary">
               Pozri si naše série
             </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWS -->
+      <section id="news">
+        <div class="section-card">
+          <div class="section-header">
+            <h2 class="section-title" data-i18n="news_title">Novinky</h2>
+            <span class="section-kicker">News</span>
+          </div>
+          <div id="news-container">
+            <p class="muted" data-i18n="news_loading">Načítavam...</p>
+          </div>
+
+          <div class="news-pagination" id="news-pagination" style="display: none;">
+            <button class="btn btn-ghost btn-sm" id="btn-prev-news" onclick="changeNewsPage(-1)"
+              data-i18n="news_prev">Predchádzajúce</button>
+            <span id="news-page-indicator" class="muted" style="margin: 0 1rem; font-size: 0.9em;"></span>
+            <button class="btn btn-ghost btn-sm" id="btn-next-news" onclick="changeNewsPage(1)"
+              data-i18n="news_next">Ďalšie</button>
           </div>
         </div>
       </section>
