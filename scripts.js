@@ -181,6 +181,158 @@ function changeNewsPage(dir) {
   renderNews();
 }
 
+// --- SCROLL REVEAL ---
+function initScrollReveal() {
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length || !('IntersectionObserver' in window)) {
+    // Fallback: show all immediately
+    for (var i = 0; i < reveals.length; i++) reveals[i].classList.add('visible');
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function (el) { observer.observe(el); });
+}
+
+// --- HERO PARALLAX ---
+function initHeroParallax() {
+  var heroBg = document.querySelector('.hero-bg');
+  if (!heroBg) return;
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        var scrolled = window.pageYOffset;
+        if (scrolled < window.innerHeight) {
+          heroBg.style.transform = 'translateY(' + (scrolled * 0.35) + 'px)';
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+// --- NAV OVERFLOW MENU ---
+// Nav links visibility is controlled by CSS breakpoints in style.css (.nav-links .nav-link:nth-child(n+X)).
+// This JS only builds the overflow dropdown from CSS-hidden links and handles the toggle button.
+function initPriorityNav() {
+  var navLinks = document.querySelector('.nav-links');
+  var toggle = document.querySelector('.nav-toggle');
+  var overflow = document.getElementById('nav-overflow');
+  if (!navLinks || !toggle || !overflow) return;
+
+  var allLinks = Array.from(navLinks.querySelectorAll('.nav-link'));
+
+  function update() {
+    overflow.innerHTML = '';
+    toggle.classList.remove('visible', 'active');
+    overflow.classList.remove('open');
+
+    // Read which links CSS has hidden at the current breakpoint
+    var hiddenLinks = allLinks.filter(function (link) {
+      return window.getComputedStyle(link).display === 'none';
+    });
+
+    hiddenLinks.forEach(function (link) {
+      var a = document.createElement('a');
+      a.href = link.getAttribute('href');
+      a.className = 'nav-overflow-link';
+      a.textContent = link.textContent.trim();
+      if (link.hasAttribute('data-i18n')) {
+        a.setAttribute('data-i18n', link.getAttribute('data-i18n'));
+      }
+      a.addEventListener('click', function () {
+        overflow.classList.remove('open');
+        toggle.classList.remove('active');
+      });
+      overflow.appendChild(a);
+    });
+
+    if (hiddenLinks.length > 0) {
+      toggle.classList.add('visible');
+    }
+  }
+
+  // Toggle overflow menu
+  toggle.addEventListener('click', function () {
+    overflow.classList.toggle('open');
+    toggle.classList.toggle('active');
+  });
+
+  // Close on outside click
+  document.addEventListener('click', function (e) {
+    if (!toggle.contains(e.target) && !overflow.contains(e.target)) {
+      overflow.classList.remove('open');
+      toggle.classList.remove('active');
+    }
+  });
+
+  update();
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(update, 50);
+  });
+
+  // Rebuild overflow text after language change
+  var origSetLang = window.setLanguage;
+  window.setLanguage = function (lang) {
+    origSetLang(lang);
+    update();
+  };
+}
+
+// --- WIDE PARALLAX (JS-driven background-position-y) ---
+// Used for .parallax-break--wide where background-attachment:fixed would break no-repeat positioning.
+// background-attachment stays scroll; JS shifts background-position-y to create parallax.
+function initWideParallax() {
+  var els = document.querySelectorAll('.parallax-break--wide');
+  if (!els.length) return;
+  var ticking = false;
+
+  function update() {
+    els.forEach(function (el) {
+      var rect = el.getBoundingClientRect();
+      var viewH = window.innerHeight;
+      // progress: 0 = element just entered from bottom, 1 = element just left from top
+      var progress = (viewH - rect.top) / (viewH + rect.height);
+      progress = Math.max(0, Math.min(1, progress));
+      // Map to background-position-y: 40% at entry → 60% at exit (slow drift = parallax feel)
+      var posY = 0 + progress * 100;
+      el.style.backgroundPositionY = posY + '%';
+    });
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  update();
+}
+
+function fixNavScrollbar() {
+  var navInner = document.querySelector('.nav-inner');
+  if (!navInner) return;
+  var basePadding = 24; // 1.5rem in px
+  function adjust() {
+    var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    navInner.style.paddingRight = (basePadding + scrollbarWidth) + 'px';
+  }
+  //adjust();
+  //window.addEventListener('resize', adjust);
+}
+
 function init() {
   if (typeof renderDrivers === 'function' && document.getElementById('driver-grid')) {
     renderDrivers();
@@ -190,6 +342,10 @@ function init() {
     loadGallery();
   }
   setLanguage("sk");
+  initScrollReveal();
+  initHeroParallax();
+  initWideParallax();
+  initPriorityNav();
 }
 
 // inicializácia – po načítaní HTML
