@@ -55,6 +55,17 @@ const DRIVERS = [
     emailDomain: ""
   },
   {
+    name: "Ladislav Petrík",
+    avatar: "images/avatars/lp.png",
+    flags: "SK",
+    badges: ["GT3"],
+    simulator: "LMU, ACC",
+    classes: "GT3",
+    achievements: "",
+    emailUser: "",
+    emailDomain: ""
+  },
+  {
     name: "Jakub Sehnal",
     avatar: "images/avatars/js.png",
     flags: "CZ",
