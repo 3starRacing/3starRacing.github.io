@@ -955,6 +955,17 @@ section {
   white-space: pre-line;
 }
 
+.achievement-link {
+  color: var(--text-main);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 2px;
+}
+
+.achievement-link:hover {
+  color: var(--accent);
+}
+
 .ordinal {
   font-size: 0.7em;
   vertical-align: super;

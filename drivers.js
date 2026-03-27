@@ -28,7 +28,7 @@ const DRIVERS = [
     badges: ["LMU", "LMGT3", "HY", "LMP2", "LMP3"],
     simulator: "LMU",
     classes: "LMGT3, prototypes",
-    achievements: "",
+    achievements: "2nd SSRI Le Mans Series - [Season 3](https://www.thesimgrid.com/championships/17820/standings?filter_class=56239&overall=0)\n3rd Harakiri ELMS - [Season 2](https://www.thesimgrid.com/championships/20402/standings?filter_class=70788&overall=0)",
     emailUser: "mk",
     emailDomain: "3star.racing"
   },
@@ -113,6 +113,16 @@ function formatOrdinals(text) {
   return text.replace(/(\d+)(st|nd|rd|th)/gi, '$1<span class="ordinal">$2</span>');
 }
 
+/**
+ * Converts markdown-style [text](url) links in achievement strings to HTML anchors.
+ * Only allows http/https URLs to prevent javascript: injection.
+ */
+function formatAchievementLinks(text) {
+  if (!text) return text;
+  return text.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer" class="achievement-link">$1</a>');
+}
+
 function renderDrivers() {
   const container = document.getElementById('driver-grid');
   if (!container) return;
@@ -158,7 +168,7 @@ function renderDrivers() {
     </div>
     ${driver.achievements ? `<div class="driver-line">
       <span class="driver-label" data-i18n="drivers_label_achievements">Úspechy</span>
-      <span class="driver-value driver-value-achievements">${formatOrdinals(driver.achievements)}</span>
+      <span class="driver-value driver-value-achievements">${formatOrdinals(formatAchievementLinks(driver.achievements))}</span>
     </div>` : ''}
     ${driver.emailUser ? `<div class="driver-line">
       <span class="driver-label" data-i18n="drivers_label_email">E-mail</span>
