@@ -102,12 +102,12 @@ const DRIVERS = [
     name: "Zdeněk Vortel",
     avatar: "",
     flags: "CZ",
-    badges: ["ACC", "GT3"],
+    badges: ["ACC", "GT3", "GT4"],
     simulator: "ACC PS5",
-    classes: "GT3",
+    classes: "GT3, GT4",
     achievements: "",
-    emailUser: "",
-    emailDomain: ""
+    emailUser: "Certzdeny",
+    emailDomain: "seznam.cz"
   },
   {
     name: "Tobias Zajíček",
