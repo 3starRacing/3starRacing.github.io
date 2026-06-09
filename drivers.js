@@ -50,7 +50,7 @@ const DRIVERS = [
     badges: ["iRacing", "GT3", "LMU"],
     simulator: "LMU, iRacing",
     classes: "GT3",
-    achievements: "",
+    achievements: "1st TTR season 2024-2025, Silver (ACC)\n2nd TTR season 2023-2024, Silver (ACC)",
     emailUser: "mm",
     emailDomain: "3star.racing"
   },
@@ -97,6 +97,17 @@ const DRIVERS = [
     achievements: "",
     emailUser: "",
     emailDomain: ""
+  },
+  {
+    name: "Vladyslav Tomeček ",
+    avatar: "",
+    flags: "CZ",
+    badges: ["iRacing", "GT3"],
+    simulator: "iRacing",
+    classes: "GT3",
+    achievements: "",
+    emailUser: "vlado",
+    emailDomain: "3star.racing"
   },
   {
     name: "Vojtěch Tržil",
