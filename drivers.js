@@ -88,6 +88,17 @@ const DRIVERS = [
     emailDomain: "3star.racing"
   },
   {
+    name: "Jan Soumar",
+    avatar: "",
+    flags: "CZ",
+    badges: ["iRacing", "GT3"],
+    simulator: "iRacing",
+    classes: "GT3",
+    achievements: "",
+    emailUser: "",
+    emailDomain: ""
+  },  
+  {
     name: "Koudy Stříbrský",
     avatar: "",
     flags: "CZ",
