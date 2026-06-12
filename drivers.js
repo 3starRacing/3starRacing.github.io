@@ -11,6 +11,17 @@ const DRIVERS = [
     emailDomain: "3star.racing"
   },
   {
+    name: "Jan Flachs",
+    avatar: "images/avatars/jf.jpg",
+    flags: "CZ",
+    badges: ["iRacing", "GT3", "GTE"],
+    simulator: "iRacing",
+    classes: "GT3, GTE",
+    achievements: "",
+    emailUser: "jan.flachs",
+    emailDomain: "outlook.cz"
+  },
+  {
     name: "Filip Hlaváč",
     avatar: "images/avatars/fh.jpg",
     flags: "CZ",
