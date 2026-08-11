@@ -1,5 +1,16 @@
 const DRIVERS = [
   {
+    name: "Ondrej Černohorský",
+    avatar: "",
+    flags: "CZ",
+    badges: ["GT3", "LMP2", "LMU", "iRacing"],
+    simulator: "LMU, iRacing",
+    classes: "LMGT3, LMP2",
+    achievements: "",
+    emailUser: "ondra.cerno",
+    emailDomain: "gmail.com"
+  },
+  {
     name: "Juraj Ďurica",
     avatar: "",
     flags: "SK,DE",
