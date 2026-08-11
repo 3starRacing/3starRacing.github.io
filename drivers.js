@@ -154,6 +154,17 @@ const DRIVERS = [
     emailDomain: ""
   },
   {
+    name: "Filip Valenta",
+    avatar: "",
+    flags: "CZ",
+    badges: ["LMU","AC", "GT3"],
+    simulator: "LMU, AC",
+    classes: "GT3",
+    achievements: "",
+    emailUser: "filip.valenta",
+    emailDomain: "officialhiddenprofit.com"
+  },
+  {
     name: "Zdeněk Vortel",
     avatar: "",
     flags: "CZ",
