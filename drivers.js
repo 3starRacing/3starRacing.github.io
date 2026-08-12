@@ -33,17 +33,6 @@ const DRIVERS = [
     emailDomain: "outlook.cz"
   },
   {
-    name: "Filip Hlaváč",
-    avatar: "images/avatars/fh.jpg",
-    flags: "CZ",
-    badges: ["iRacing", "86", "BMW", "Nürburgring combined 24H"],
-    simulator: "iRacing",
-    classes: "GT4, GT3, GTE, NASCAR",
-    achievements: "",
-    emailUser: "filiphlavacps86",
-    emailDomain: "gmail.com"
-  },
-  {
     name: "MG",
     avatar: "images/avatars/mg.webp",
     flags: "SK,US",
