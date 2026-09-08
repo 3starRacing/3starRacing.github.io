@@ -77,6 +77,17 @@ const DRIVERS = [
     emailDomain: ""
   },
   {
+    name: "David Neumann",
+    avatar: "",
+    flags: "CZ",
+    badges: ["GT3", "iRacing", "ACC", "PCUP"],
+    simulator: "iRacing, ACC, AC EVO",
+    classes: "GT3, PCUP, Formule SF a SFL",
+    achievements: "1st Creventic Mugello 12h\n1st Imola 3h Solo Endurace\n3rd IMSA Endurace",
+    emailUser: "neumann.d",
+    emailDomain: "email.cz"
+  },
+  {
     name: "Ladislav Petrík",
     avatar: "images/avatars/lp.png",
     flags: "SK",
