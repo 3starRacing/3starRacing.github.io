@@ -170,7 +170,7 @@ function liveriesList(token, folderId) {
         id: file.getId(),
         name: file.getName(),
         size: file.getSize(),
-        downloadUrl: file.getDownloadUrl()
+        downloadUrl: getPublicDriveDownloadUrl_(file)
       });
     }
   }
@@ -283,6 +283,18 @@ function isFolderWithinRoot_(folder, rootFolderId) {
 
 function isTgaFileName_(name) {
   return /\.tga$/i.test(String(name || ""));
+}
+
+function getPublicDriveDownloadUrl_(file) {
+  var url = "https://drive.google.com/uc?export=download&id=" +
+    encodeURIComponent(file.getId());
+  var resourceKey = file.getResourceKey();
+
+  if (resourceKey) {
+    url += "&resourcekey=" + encodeURIComponent(resourceKey);
+  }
+
+  return url;
 }
 
 function compareDriveItems_(left, right) {
