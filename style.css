@@ -1328,6 +1328,14 @@ footer {
   display: none;
 }
 
+.liveries-section {
+  padding-top: 0;
+}
+
+.liveries-section > .rpm-divider {
+  margin-bottom: 5rem;
+}
+
 .liveries-header {
   align-items: center;
   justify-content: space-between;
@@ -1607,6 +1615,10 @@ footer {
     padding: 3.5rem 0;
   }
 
+  .liveries-section > .rpm-divider {
+    margin-bottom: 3.5rem;
+  }
+
   .hero-stats {
     gap: 1.5rem;
   }
@@ -1676,6 +1688,10 @@ footer {
 
   section {
     padding: 3rem 0;
+  }
+
+  .liveries-section > .rpm-divider {
+    margin-bottom: 3rem;
   }
 
   /* Disable parallax on mobile (iOS doesn't support background-attachment: fixed) */
