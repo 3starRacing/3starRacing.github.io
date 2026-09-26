@@ -320,13 +320,36 @@
         </div>
       </div>
     </section>
+
+    <!-- PASSWORD-GATED LIVERIES (opened from the footer) -->
+    <section id="liveries" class="liveries-section" hidden>
+      <hr class="rpm-divider">
+      <div class="container">
+        <div class="section-header liveries-header">
+          <h2 class="section-title">
+            <span class="section-prefix">// </span>
+            <span data-i18n="liveries_title">Tímové liveries</span>
+          </h2>
+          <button type="button" class="btn btn-ghost" id="liveries-logout" data-i18n="liveries_logout">
+            Odhlásiť
+          </button>
+        </div>
+        <p class="muted" data-i18n="liveries_intro">
+          Vyber priečinok a stiahni si dostupné TGA súbory.
+        </p>
+        <nav class="liveries-breadcrumb" id="liveries-breadcrumb" aria-label="Livery folders"></nav>
+        <p class="muted liveries-status" id="liveries-status" role="status" aria-live="polite" hidden></p>
+        <div class="liveries-grid" id="liveries-grid"></div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="container footer-inner">
-      <span data-i18n="footer_text">
+      <button type="button" class="footer-secret" id="liveries-entry" aria-controls="liveries"
+        aria-expanded="false" data-i18n="footer_text">
         3Star Racing – simracing tím SK &amp; CZ
-      </span>
+      </button>
     </div>
   </footer>
 
@@ -341,10 +364,36 @@
     </div>
   </div>
 
+  <!-- LIVERIES LOGIN -->
+  <div class="liveries-dialog" id="liveries-login-dialog" role="dialog" aria-modal="true"
+    aria-labelledby="liveries-login-title" hidden>
+    <div class="liveries-dialog-card">
+      <button type="button" class="liveries-dialog-close" id="liveries-login-close" aria-label="Close">
+        <span aria-hidden="true">&#x2715;</span>
+        <span class="sr-only" data-i18n="liveries_close">Zavrieť</span>
+      </button>
+      <h2 class="section-title" id="liveries-login-title" data-i18n="liveries_login_title">
+        Prístup k liveries
+      </h2>
+      <p class="muted" data-i18n="liveries_login_intro">
+        Zadaj tímové heslo pre otvorenie súborov.
+      </p>
+      <form class="liveries-login-form" id="liveries-login-form">
+        <label for="liveries-password" data-i18n="liveries_password_label">Heslo</label>
+        <input type="password" id="liveries-password" name="password" autocomplete="current-password" required
+          data-i18n-placeholder="liveries_password_placeholder" placeholder="Zadaj heslo">
+        <p class="liveries-login-status" id="liveries-login-status" role="status" aria-live="polite" hidden></p>
+        <button type="submit" class="btn btn-primary" id="liveries-login-submit"
+          data-i18n="liveries_login_action">Odomknúť</button>
+      </form>
+    </div>
+  </div>
+
   <script src="translations.js"></script>
   <script src="drivers.js"></script>
   <script src="scripts.js"></script>
   <script src="gallery.js"></script>
+  <script src="liveries.js"></script>
 </body>
 
 </html>

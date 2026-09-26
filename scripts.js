@@ -26,6 +26,12 @@ function setLanguage(lang) {
     }
   }
 
+  var placeholderElements = document.querySelectorAll("[data-i18n-placeholder]");
+  for (var p = 0; p < placeholderElements.length; p++) {
+    var placeholderKey = placeholderElements[p].getAttribute("data-i18n-placeholder");
+    if (dict[placeholderKey]) placeholderElements[p].placeholder = dict[placeholderKey];
+  }
+
   var buttons = document.querySelectorAll(".lang-btn");
   var langMap = { "SK": "sk", "CZ": "cz", "EN": "en" };
   for (var j = 0; j < buttons.length; j++) {
@@ -40,6 +46,10 @@ function setLanguage(lang) {
   if (typeof renderGalleryTabs === "function" && document.getElementById("gallery-tabs")) {
     renderGalleryTabs();
     if (typeof activeAlbum !== "undefined" && activeAlbum) renderGalleryGrid();
+  }
+
+  if (typeof refreshLiveriesLanguage === "function") {
+    refreshLiveriesLanguage();
   }
 }
 
