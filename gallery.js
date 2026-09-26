@@ -5,7 +5,7 @@
 // --- CONFIG ---
 // Paste the Google Apps Script /exec URL here (see gallery-api.gs for setup).
 // No API key needed — the script runs server-side with its own credentials.
-var GALLERY_API_URL = "https://script.google.com/macros/s/AKfycbyN9Ghoj9yvyWNTKhHuuBDuzMTSzQZ2tAetGlKwVKB4gF9nml__g8mGDnyvYZ9m-PpH4g/exec";
+var GALLERY_API_URL = "https://script.google.com/macros/s/AKfycbx4vdd9V31jYNGnAu4ELmzbIlDu7u6GSTh-DGFvW-hUZ0NPbthIWYOp6YM2jJHoACab/exec";
 
 // --- STATE ---
 var galleryAlbums = [];   // [{id, name}, ...] — subfolders of the root folder
