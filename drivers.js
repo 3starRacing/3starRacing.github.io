@@ -78,7 +78,7 @@ const DRIVERS = [
   },
   {
     name: "David Neumann",
-    avatar: "",
+    avatar: "images/avatars/dawe.jpg",
     flags: "CZ",
     badges: ["GT3", "iRacing", "ACC", "PCUP"],
     simulator: "iRacing, ACC, AC EVO",
