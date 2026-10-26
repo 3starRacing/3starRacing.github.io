@@ -174,6 +174,17 @@ const DRIVERS = [
     achievements: "",
     emailUser: "Certzdeny",
     emailDomain: "seznam.cz"
+  },
+  {
+    name: "Tobias Zajíček",
+    avatar: "images/avatars/tz.jpg",
+    flags: "CZ",
+    badges: ["LMU", "ACC", "GT3"],
+    simulator: "LMU, ACC, PS5",
+    classes: "GT3",
+    achievements: "1st na mistrovství moravském poháru\n3rd na mistrovství sveta",
+    emailUser: "tobiaszajicek88",
+    emailDomain: "gmail.com"
   }
 ];
 
