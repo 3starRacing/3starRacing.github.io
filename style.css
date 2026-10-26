@@ -1058,6 +1058,114 @@ section {
 }
 
 /* ═══════════════════════════════════════════
+   PARTNERS
+═══════════════════════════════════════════ */
+
+.partners-section {
+  padding: 0 0 2rem;
+}
+
+.partners-inner {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 2rem;
+}
+
+.partners-title {
+  margin: 0 0 1.4rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.partners-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.partners-item {
+  min-width: 0;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Crop only transparent margins; keep the supplied logo files unchanged. */
+.partners-logo {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.partners-logo img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  top: 0;
+  left: 0;
+}
+
+.partners-logo-racedock {
+  width: 8.5rem;
+  aspect-ratio: 2400 / 445;
+}
+
+.partners-logo-acw {
+  width: 2.59375rem;
+  aspect-ratio: 914 / 1058;
+}
+
+.partners-logo-acw img {
+  width: 118.162%;
+  left: -9.081%;
+  top: -1.04%;
+}
+
+.partners-logo-nachtfahrer {
+  width: 9.25rem;
+  aspect-ratio: 4744 / 1376;
+}
+
+.partners-logo-mantsol {
+  width: 7.75rem;
+  aspect-ratio: 817 / 164;
+}
+
+.partners-logo-mantsol img {
+  width: 122.399%;
+  left: -10.159%;
+  top: -37.805%;
+}
+
+.partners-logo-duravit {
+  width: 9rem;
+  aspect-ratio: 4417 / 833;
+}
+
+.partners-logo-peza {
+  width: 8.75rem;
+  aspect-ratio: 944 / 111;
+}
+
+.partners-logo-peza img {
+  width: 107.309%;
+  left: -4.025%;
+  top: -54.054%;
+}
+
+.partners-logo-light {
+  filter: brightness(0) invert(1);
+}
+
+/* ═══════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════ */
 
@@ -1608,6 +1716,10 @@ footer {
   .gallery-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .partners-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1072px) {
@@ -1635,6 +1747,23 @@ footer {
 @media (max-width: 640px) {
   .container {
     padding-inline: 1rem;
+  }
+
+  .partners-section {
+    padding-bottom: 1.5rem;
+  }
+
+  .partners-inner {
+    padding-top: 1.5rem;
+  }
+
+  .partners-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.125rem 1.25rem;
+  }
+
+  .partners-item {
+    height: 3.5rem;
   }
 
   .nav-inner {
